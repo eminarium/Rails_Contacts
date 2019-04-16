@@ -1,2 +1,34 @@
-<h1>Categories#index</h1>
-<p>Find me in app/views/categories/index.html.erb</p>
+<%
+	card_types = %w(primary secondary success danger warning info dark)
+%>
+
+	<div class="container">
+
+		<div class="input-group mt-5 mb-3">
+		  <div class="input-group-prepend">
+		    <span class="input-group-text" id="basic-addon1"><i class="fa fa-search"></i></span>
+		  </div>
+		  <input type="text" class="form-control" placeholder="Kategoriýa Saýlaň ýa-da gözläň ..." aria-label="Username" aria-describedby="basic-addon1">
+		</div>
+
+
+		<div class="row">
+
+			<% @categories.each do |category| %>
+			<% 	selected_value = card_types.sample %>
+				<div class="card border-<%= selected_value %> mb-3 ml-5" style="max-width: 18rem;">
+				  <div class="card-header"><i class="fa <%= category.icon_type %>"></i> <%= category.title %></div>
+				  <div class="card-body text-<%= selected_value %>">
+				    <!-- <h5 class="card-title"><%= category.title %></h5> -->
+				    <p class="card-text"><%= category.description %></p>
+				    <button type="button" class="btn btn-outline-<%= selected_value %>">Giňişleýin</button>
+				  </div>
+				</div>
+
+			<% end %>
+
+		</div>
+
+	</div>
+
+
