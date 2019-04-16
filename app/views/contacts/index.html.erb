@@ -1,33 +1,74 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
 
-<h1>Contacts</h1>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
 
-<table>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Kategoriýalar
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+          <% @categories.each do |cat| %>
+            <a class="dropdown-item" href="#"> <%= cat.title %> </a>              
+
+            <% unless cat == @categories.last %> 
+              <div class="dropdown-divider"></div>
+            <% end %>
+
+          <% end %>
+
+        </div>
+      </li>
+    </ul>
+
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-6" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+
+  </div>
+</nav>
+
+<h1>Salgylar Sanawy </h1>
+
+
+<table class="table table-hover">
+
   <thead>
     <tr>
-      <th>Title</th>
-      <th>Address</th>
-      <th>Description</th>
-      <th>Category</th>
-      <th colspan="3"></th>
+      <th>Kontakt</th>
+      <th>Salgysy</th>
+      <th>Kategoriýasy</th>
+      <th>Teswiri</th>
+      <th>Amallar</th>
     </tr>
   </thead>
 
   <tbody>
+
     <% @contacts.each do |contact| %>
       <tr>
-        <td><%= contact.title %></td>
-        <td><%= contact.address %></td>
-        <td><%= contact.description %></td>
-        <td><%= contact.category %></td>
-        <td><%= link_to 'Show', contact %></td>
-        <td><%= link_to 'Edit', edit_contact_path(contact) %></td>
-        <td><%= link_to 'Destroy', contact, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td> <%= contact.title %> </td>
+        <td> <%= contact.address %> </td>
+        <td> <%= contact.category.title %> </td>
+        <td> <%= contact.description %> </td>
+        <td> <%= contact.description %> </td>
+        <td> 
+          <%= link_to 'Show', contact %> 
+          <%= link_to 'Edit', edit_contact_path(contact) %>
+          <%= link_to 'Destroy', contact, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
       </tr>
     <% end %>
+
   </tbody>
+
 </table>
 
-<br>
-
 <%= link_to 'New Contact', new_contact_path %>
+
+
+</div>

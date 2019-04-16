@@ -5,6 +5,7 @@ class ContactsController < ApplicationController
   # GET /contacts.json
   def index
     @contacts = Contact.all
+    @categories = Category.all.order('id ASC')
   end
 
   # GET /contacts/1
