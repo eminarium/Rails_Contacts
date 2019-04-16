@@ -1,20 +1,27 @@
 source 'https://rubygems.org'
 
-git_source(:github) do |repo_name|
-  repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
-  "https://github.com/#{repo_name}.git"
-end
+#git_source(:github) do |repo_name|
+  #repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
+  #{}"https://github.com/#{repo_name}.git"
+#end
 
 gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.4'
 #gem 'bootstrap-sass', '~> 3.4', '>= 3.4.1'
 gem 'bootstrap', '~> 4.3', '>= 4.3.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.0.7', '>= 5.0.7.2'
+#gem 'rails', '~> 5.0.7', '>= 5.0.7.2'
+#gem 'rails'#, git: 'https://github.com/rails/rails.git'
+#gem 'rails', '~> 5.2', '>= 5.2.3'
+gem 'rails', '~> 5.2', '>= 5.2.2'
+#gem 'activesupport', '~> 5.2', '>= 5.2.3'
+#gem 'rails'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+#gem 'sqlite3'
+gem 'sqlite3', '~> 1.3.6'
 # Use Puma as the app server
-gem 'puma', '~> 3.0'
+#gem 'puma', '~> 3.0'
+gem 'puma', '~> 3.12', '>= 3.12.1'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -40,7 +47,7 @@ gem 'jbuilder', '~> 2.5'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platform: :mri
+  #gem 'byebug', platform: :mri
 end
 
 group :development do

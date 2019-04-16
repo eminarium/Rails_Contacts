@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+first_cat:
+  title: First Category
+  icon_type: fa-first
+  description: Description of first category
+
+second_cat:
+  title: Second Category
+  icon_type: fa-second
+  description: Description of second category
