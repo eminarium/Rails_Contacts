@@ -6,13 +6,17 @@
     <ul class="navbar-nav mr-auto">
 
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="nav-link dropdown-toggle h3" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Kategoriýalar
         </a>
+
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
 
+          <a class="dropdown-item" href="/contacts">Ählisi</a>
+          <div class="dropdown-divider"></div>
+
           <% @categories.each do |cat| %>
-            <a class="dropdown-item" href="#"> <%= cat.title %> </a>              
+            <%= link_to cat.title, contacts_path(category: cat.id), class: "dropdown-item" %>
 
             <% unless cat == @categories.last %> 
               <div class="dropdown-divider"></div>
@@ -22,6 +26,14 @@
 
         </div>
       </li>
+      <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+      <li>
+        <%= link_to new_contact_path do %>
+          <button type="button" class="btn btn-primary" style="margin-top:10px">Täze Kontakt</button>
+        <% end %>
+      </li>
+
+
     </ul>
 
     <form class="form-inline my-2 my-lg-0">
@@ -34,6 +46,8 @@
 
 <h1>Salgylar Sanawy </h1>
 
+<br/>
+<br/>
 
 <table class="table table-hover">
 
@@ -55,11 +69,16 @@
         <td> <%= contact.address %> </td>
         <td> <%= contact.category.title %> </td>
         <td> <%= contact.description %> </td>
-        <td> <%= contact.description %> </td>
         <td> 
-          <%= link_to 'Show', contact %> 
-          <%= link_to 'Edit', edit_contact_path(contact) %>
-          <%= link_to 'Destroy', contact, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <%= link_to contact do %>
+            <i class="fa fa-info-circle"></i>
+          <% end %> 
+          &nbsp;
+          <%= link_to edit_contact_path(contact) do %>
+            <i class="fa fa-edit"></i>
+          <% end %> 
+          &nbsp;
+          <%= link_to "<i class='fa fa-times-circle'></i>".html_safe, contact, method: :delete, data: { confirm: 'Are you sure?' } %>
         </td>
       </tr>
     <% end %>
@@ -67,8 +86,5 @@
   </tbody>
 
 </table>
-
-<%= link_to 'New Contact', new_contact_path %>
-
 
 </div>

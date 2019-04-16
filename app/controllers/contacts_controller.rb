@@ -4,7 +4,12 @@ class ContactsController < ApplicationController
   # GET /contacts
   # GET /contacts.json
   def index
-    @contacts = Contact.all
+    @contacts = unless params[:category].blank?
+      Contact.where(category_id: params[:category]).order('title ASC')
+    else
+      Contact.all.order('title ASC')
+    end
+
     @categories = Category.all.order('id ASC')
   end
 
