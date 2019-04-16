@@ -1,13 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  title: MyString
-  address: MyText
-  description: MyText
-  category: one
+first_contact:
+  title: Kenek
+  address: A. Novai kocesi, jay 34
+  description: Suyjilikler, desertler, eltip berme hyzmaty
+  category: first_cat
 
-two:
-  title: MyString
-  address: MyText
-  description: MyText
-  category: two
+second_contact:
+  title: Soltan
+  address: Parahat 4, jay 23 
+  description: Restoran we eltip berme hyzmaty
+  category: second_cat

@@ -1,5 +1,7 @@
 class Category < ApplicationRecord
 
+	has_many :contacts
+	
 	validates_presence_of :title
 
 end

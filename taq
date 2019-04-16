@@ -1,0 +1,35 @@
+[33mcommit 95643bd5953aa460ff28bb4c3d0004f154937caa[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: eminarium <merdan.durdiyev@gmail.com>
+Date:   Tue Apr 16 14:57:41 2019 +0500
+
+    Created Contact scaffold and made model validations.
+
+[33mcommit 0c27611fc3b83e70011a18c3cabb985539770154[m
+Author: eminarium <merdan.durdiyev@gmail.com>
+Date:   Tue Apr 16 11:41:20 2019 +0500
+
+    Created some tests for phone_type model, including tests
+
+[33mcommit 9ed082cd80801806b1ba52e3eff107440e3a6800[m
+Author: eminarium <merdan.durdiyev@gmail.com>
+Date:   Tue Apr 16 11:39:51 2019 +0500
+
+    Created PhoneType model
+
+[33mcommit b37bc94205857ef1d7c255b8bb1ae8bcba1deb1c[m
+Author: eminarium <merdan.durdiyev@gmail.com>
+Date:   Tue Apr 16 11:26:24 2019 +0500
+
+    Integrated bootstrap and added view for category
+
+[33mcommit e6b3aea51a2ba97c47a609031e8b39507eec995b[m
+Author: eminarium <merdan.durdiyev@gmail.com>
+Date:   Tue Apr 16 11:05:04 2019 +0500
+
+    Created category model and controller, including tests
+
+[33mcommit cde6b965f281de16a05232c7391eaf35365d690c[m
+Author: eminarium <merdan.durdiyev@gmail.com>
+Date:   Thu Apr 11 19:45:14 2019 +0500
+
+    Initial commit. Just created the contacts application
