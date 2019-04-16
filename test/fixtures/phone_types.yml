@@ -1,9 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  title: MyString
-  icon_type: MyString
+first_type:
+  title: Mobile
+  icon_type: fa-mobile
 
-two:
-  title: MyString
-  icon_type: MyString
+second_type:
+  title: Home
+  icon_type: fa-home
