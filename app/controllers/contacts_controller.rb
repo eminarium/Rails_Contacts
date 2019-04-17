@@ -5,7 +5,8 @@ class ContactsController < ApplicationController
   # GET /contacts.json
   def index
     @contacts = unless params[:category].blank?
-      Contact.where(category_id: params[:category]).order('title ASC')
+      #Contact.where(category_id: params[:category]).order('title ASC')
+      Category.find(params[:category]).contacts
     else
       Contact.all.order('title ASC')
     end

@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'phones/new'
+  get 'phones/create'
+  get 'phones/destroy'
+  get 'phones/update'
   resources :contacts
   get 'categories/index'
 
