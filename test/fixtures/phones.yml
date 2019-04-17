@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+phone_no_one:
+  phone_no: +99365562692
+  notes: My own mobile
+  phone_type: first_type
+  contact: first_contact
+
+phone_no_two:
+  phone_no: +99312931426
+  notes: My home number
+  phone_type: second_type
+  contact: second_contact
