@@ -65,7 +65,7 @@
 
     <% @contacts.each do |contact| %>
       <tr>
-        <td> <%= contact.title %> </td>
+        <td> <%= link_to contact.title , contact %> </td>
         <td> <%= contact.address %> </td>
         <td> <%= contact.category.title %> </td>
         <td> <%= contact.description %> </td>
@@ -77,8 +77,6 @@
           <%= link_to edit_contact_path(contact) do %>
             <i class="fa fa-edit"></i>
           <% end %> 
-          &nbsp;
-          <%= link_to "<i class='fa fa-times-circle'></i>".html_safe, contact, method: :delete, data: { confirm: 'Are you sure?' } %>
         </td>
       </tr>
     <% end %>

@@ -1,4 +1,5 @@
 class PhonesController < ApplicationController
+
   def new
   end
 
@@ -8,6 +9,10 @@ class PhonesController < ApplicationController
   def destroy
   end
 
+  def edit
+  end
+
   def update
   end
+
 end

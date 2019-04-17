@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
-  get 'phones/new'
-  get 'phones/create'
-  get 'phones/destroy'
-  get 'phones/update'
-  resources :contacts
+  
+  resources :contacts do
+  	get 'phones/new'
+  	get 'phones/update'
+	get 'phones/destroy'
+  end
+
   get 'categories/index'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
