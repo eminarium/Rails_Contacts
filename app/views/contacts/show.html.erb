@@ -1,49 +1,59 @@
 <br/>
-<p id="notice"><%= notice %></p>
 
 <div class="container">
+
+	<% if notice %>
+		<div class="alert alert-secondary" role="alert">
+	  		<%= notice %>
+		</div>
+	<% end %>
+
 	<div class="card">
 		<div class="card-header"> <b><%= @contact.title %></b> </div>
 		<div class="card-body">
-			<table>
 
-				<tr>
-					<td>Kategoriýasy</td> 
-					<td> &nbsp; : &nbsp; </td>
-					<td> <%= @contact.category.title %> </td>
-				</tr>
+			<dl class="row">
 
-				<tr>
-					<td>Salgysy</td> 
-					<td> &nbsp; : &nbsp; </td>
-					<td> <%= @contact.address %> </td>
-				</tr>
+				<dt class="col-sm-3">Kategoriýasy</dt>
+				<dd class="col-sm-9"><%= @contact.category.title %></dd>
 
-				<tr>
-					<td>Teswiri</td> 
-					<td> &nbsp; : &nbsp; </td>
-					<td> <%= @contact.description %> </td>
-				</tr>
+				<dt class="col-sm-3">Salgysy</dt>
+				<dd class="col-sm-9"><%= @contact.address %></dd>
 
-				<tr>
-					<td colspan="3">&nbsp;</td>
-				</tr>
+				<dt class="col-sm-3">Teswiri</dt>
+				<dd class="col-sm-9"><%= @contact.description %></dd>
 
-				<tr>
-					<td colspan="3">
-						<%= link_to contacts_path do %>
-							<button class="btn btn-primary">Yza</button>
-						<% end %>
-						<%= link_to edit_contact_path(@contact) do %>
-							<button type="button" class="btn btn-warning"> Üýtget</button>
-						<% end %>
-						<%= link_to @contact, method: :delete, data: { confirm: "Are you sure ?" }  do %>
-							<button type="button" class="btn btn-danger"> Boz</button>
-						<% end %>
-					</td> 
-				</tr>
+				<% if @contact.phones.any? %>
+					<hr style="width: 100%; background-color: gray; height: 1px; " />
+					<% @contact.phones.each do |phone| %>
+						<dt class="col-sm-3"><%= phone.phone_type.title %></dt>
+						<dd class="col-sm-9">
+							<div class="row">
+								<div class="col-sm-3"><a href="tel:<%= phone.phone_no %>"><%= phone.phone_no %></a></div>
+								<div class="col-sm-9"><%= phone.notes %></div>
+							</div>
+						</dd>
+					<% end %>
+				<% else %>
+					<dt class="col-sm-3">Belgiler</dt>
+					<dd class="col-sm-9"><b><i>BU KONTAKTYŇ HIÇ BELGISI GIRIZILMEDIK...</i></b></dd>
+				<% end %>
 
-			</table>
+			</dl>
+
 		</div>
+
+		<div class="card-footer">
+			<%= link_to contacts_path do %>
+				<button class="btn btn-primary">Yza</button>
+			<% end %>
+			<%= link_to edit_contact_path(@contact) do %>
+				<button type="button" class="btn btn-warning"> Üýtget</button>
+			<% end %>
+			<%= link_to @contact, method: :delete, data: { confirm: "Are you sure ?" }  do %>
+				<button type="button" class="btn btn-danger"> Boz</button>
+			<% end %>
+		</div>
+
 	</div>
 </div>

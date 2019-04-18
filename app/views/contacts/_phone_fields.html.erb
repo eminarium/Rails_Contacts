@@ -1,0 +1,21 @@
+<div class="nested-fields">
+
+	<dl class="row">
+
+		<dt class="col-sm-3">Belgi</dt>
+		<dd class="col-sm-9"> <%= f.text_field :phone_no, class: "form-control", placeholder: "Telefon belgini giriziň..." %> </dd>
+
+		<dt class="col-sm-3">Belgi Görnüşi</dt>
+		<dd class="col-sm-9"> <%= f.collection_select :phone_type_id, PhoneType.all, :id, :title, class: "form-control" %> </dd>
+
+		<dt class="col-sm-3">Bellikler</dt>
+		<dd class="col-sm-9"> <%= f.text_field :notes, class: "form-control" %> </dd>
+
+		<dt class="col-sm-12"><%= link_to_remove_association "Bu Tel. Belgini Boz", f, class: 'btn btn-danger btn-xs' %></dt>
+
+	</dl>
+
+
+	<hr style="width: 100%; background-color: gray; height: 1px; " />
+
+</div>
