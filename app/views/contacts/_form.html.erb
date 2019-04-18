@@ -1,37 +1,50 @@
-<%= form_with(model: contact, local: true) do |form| %>
-  <% if contact.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(contact.errors.count, "error") %> prohibited this contact from being saved:</h2>
+<%= form_for @contact do |f| %>
 
-      <ul>
-      <% contact.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+	<% if @contact.errors.any? %>
+		<div class="alert alert-danger" role="alert">
+			<% @contact.errors.each do |attr, message| %>
+	  			<li><%= message %></li>
+			<% end %>
+		</div>
+	<% end %>
 
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
-  </div>
+	<dl class="row">
 
-  <div class="field">
-    <%= form.label :address %>
-    <%= form.text_area :address %>
-  </div>
+		<dt class="col-sm-3">Kontaktyň Ady</dt>
+		<dd class="col-sm-9"><%= f.text_field :title, class: "form-control", placeholder: "Kontaktyň, edaranyň, şahsyň adyny giriziň..." %></dd>
 
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description %>
-  </div>
+		<dt class="col-sm-3">Kategoriýasy</dt>
+		<dd class="col-sm-9"> <%= f.collection_select :category_id, Category.all, :id, :title, class: "form-control" %> </dd>
 
-  <div class="field">
-    <%= form.label :category_id %>
-    <%= form.text_field :category_id %>
-  </div>
+		<dt class="col-sm-3">Teswiri</dt>
+		<dd class="col-sm-9"><%= f.text_field :description, class: "form-control", placeholder: "Kontaktyň, edaranyň, şahsyň teswirini giriziň..." %></dd>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+		<dt class="col-sm-3">Salgysy</dt>
+		<dd class="col-sm-9"><%= f.text_field :address, class: "form-control", placeholder: "Kontaktyň, edaranyň, şahsyň salgysyny giriziň..." %></dd>
+
+	</dl>
+
+	<hr style="width: 100%; background-color: gray; height: 1px; " />
+	<h4> Telefon Belgileri </h4>
+	<hr style="width: 100%; background-color: gray; height: 1px; " />
+
+	<div id="phones">
+		<%= f.fields_for :phones do |phone| %>
+			<%= render 'phone_fields', f: phone %>
+		<% end %>
+	</div>
+
+	<div class="links">
+		<%= link_to_add_association f, :phones do %>
+			<button type="button" class="btn btn-primary">
+				<i class="fa fa-plus-circle" style="font-size:14pt"></i>
+				Täze Tel. Belgi Goş 
+			</button>
+		<% end %>
+	</div>
+
+	<hr style="width: 100%; background-color: gray; height: 1px; " />
+
+	<%= f.submit "Kabul Et", class: 'btn btn-primary btn-xs' %>
+
 <% end %>
