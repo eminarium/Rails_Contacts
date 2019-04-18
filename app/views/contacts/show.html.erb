@@ -15,7 +15,7 @@
 			<dl class="row">
 
 				<dt class="col-sm-3">Kategoriýasy</dt>
-				<dd class="col-sm-9"><%= @contact.category.title %></dd>
+				<dd class="col-sm-9"><%= link_to @contact.category.title, contacts_path(category: @contact.category.id) %></dd>
 
 				<dt class="col-sm-3">Salgysy</dt>
 				<dd class="col-sm-9"><%= @contact.address %></dd>

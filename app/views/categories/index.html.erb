@@ -13,7 +13,9 @@
 		  <input type="text" class="form-control" placeholder="Kategoriýa Saýlaň ýa-da gözläň ..." aria-label="Username" aria-describedby="basic-addon1">
 		  
 		  <div class="input-group-append">
-    		<button class="btn btn-primary" type="button">Ähli Kontaktlar</button>
+		  	<%= link_to contacts_path do %>
+    			<button class="btn btn-primary" type="button">Ähli Kontaktlar</button>
+    		<% end %>
   		  </div>
 
 		</div>
@@ -28,7 +30,9 @@
 				  <div class="card-body text-<%= selected_value %>">
 				    <!-- <h5 class="card-title"><%= category.title %></h5> -->
 				    <p class="card-text"><%= category.description %></p>
-				    <button type="button" class="btn btn-outline-<%= selected_value %>">Giňişleýin</button>
+				    <%= link_to contacts_path(category: category.id) do %>
+				    	<button type="button" class="btn btn-outline-<%= selected_value %>">Giňişleýin</button>
+				    <% end %>
 				  </div>
 				</div>
 
