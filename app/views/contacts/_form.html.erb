@@ -17,10 +17,10 @@
 		<dd class="col-sm-9"> <%= f.collection_select :category_id, Category.all, :id, :title, class: "form-control" %> </dd>
 
 		<dt class="col-sm-3">Teswiri</dt>
-		<dd class="col-sm-9"><%= f.text_field :description, class: "form-control", placeholder: "Kontaktyň, edaranyň, şahsyň teswirini giriziň..." %></dd>
+		<dd class="col-sm-9"><%= f.text_field :description, class: "form-control", placeholder: "Kontaktyň, edaranyň, şahsyň teswirini giriziň (12:00-13:00 arasy ýapyk, eltip berme hyzmaty bar we ş.m.)..." %></dd>
 
 		<dt class="col-sm-3">Salgysy</dt>
-		<dd class="col-sm-9"><%= f.text_field :address, class: "form-control", placeholder: "Kontaktyň, edaranyň, şahsyň salgysyny giriziň..." %></dd>
+		<dd class="col-sm-9"><%= f.text_field :address, class: "form-control", placeholder: "Kontaktyň, edaranyň, şahsyň salgysyny giriziň (şäheri, köçesi, etrapçasy, jaý belgisi we ş.m.) ..." %></dd>
 
 	</dl>
 

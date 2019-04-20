@@ -1,43 +1,92 @@
+    <script>
+        function showSearchContacts(str)
+        {
+            //if (str.length == 0) {
+                //document.getElementById("search_contacts").innerHTML = "Nichego Net";
+            //}
+            //else {
+                var xmlhttp = new XMLHttpRequest();
+
+                xmlhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        document.getElementById('search_contacts').innerHTML = this.responseText;
+                    }
+                };
+
+                xmlhttp.open("GET", "http://localhost:3000/contacts/search_contacts?hint="+str, true);
+                xmlhttp.send();
+            //}
+        }
+  </script>
+
+
 <%
 	card_types = %w(primary secondary success danger warning info dark)
 %>
 
+	<div class="jumbotron">
+	  <div class="container">
+	    <h3 class="display-4">"GUJURLY NESIL" Okuw Merkezi</h3>
+	    <h3>IŞGÄRLER ÜÇIN ÝÖRITELEŞDIRILEN KONTAKTLAR BAZASY</h3>
+	    <p class="lead">
+	    	<ul>
+	    		<li>Bu ulgam, ýörite işgärler üçin işlenip düzülendir.</li>
+	    		<li>Bu ulgamdan islendik işgär peýdalanyp biler.</li>
+				<li>Bu ulgama, islendik işgär, paýlaşmak isleýän kontaktlaryny ýeňillik bilen girizip biler.</li>
+				<li>Islendik işgär, nädogry maglumatlar girizilen kontaktlary üýtgedip biler.</li>
+				<li>Islendik işgär, ýalňyş ýa-da nädogry maglumaty bolan kontaktlary ýeňillik bilen bozup biler.</li>
+	    	</ul>
+	    </p>
+	  </div>
+	</div>
+
 	<div class="container">
 
-		<div class="input-group mt-5 mb-3">
+		<div class="input-group mt-3 mb-3 col-sm-11">
 		  
 		  <div class="input-group-prepend">
 		    <span class="input-group-text" id="basic-addon1"><i class="fa fa-search"></i></span>
 		  </div>
 		  
-		  <input type="text" class="form-control" placeholder="Kategoriýa Saýlaň ýa-da gözläň ..." aria-label="Username" aria-describedby="basic-addon1">
-		  
+		  <input type="search" class="form-control" placeholder="Kategoriýa Saýlaň ýa-da gözläň ...  (sözjügi ýazyp enter basyň)" aria-label="Username" aria-describedby="basic-addon1" onsearch="showSearchContacts(this.value)">
+		  &nbsp;&nbsp;
 		  <div class="input-group-append">
+
 		  	<%= link_to contacts_path do %>
     			<button class="btn btn-primary" type="button">Ähli Kontaktlar</button>
     		<% end %>
+    		&nbsp;&nbsp;
+			<%= link_to new_contact_path do %>
+				<button type="button" class="btn btn-primary">
+					<i class="fa fa-plus-circle" style="font-size:14pt"></i> &nbsp;
+					Täze Kontakt
+				</button>
+			<% end %>
+
   		  </div>
 
 		</div>
 
 
-		<div class="row">
+		<div id="search_contacts">
+			<div class="row">
 
-			<% @categories.each do |category| %>
-			<% 	selected_value = card_types.sample %>
-				<div class="card border-<%= selected_value %> mb-3 ml-5" style="max-width: 18rem;">
-				  <div class="card-header"><i class="fa <%= category.icon_type %>"></i> <%= category.title %></div>
-				  <div class="card-body text-<%= selected_value %>">
-				    <!-- <h5 class="card-title"><%= category.title %></h5> -->
-				    <p class="card-text"><%= category.description %></p>
-				    <%= link_to contacts_path(category: category.id) do %>
-				    	<button type="button" class="btn btn-outline-<%= selected_value %>">Giňişleýin</button>
-				    <% end %>
-				  </div>
-				</div>
+				<% @categories.each do |category| %>
+				<% 	selected_value = card_types.sample %>
+					<div class="card border-<%= selected_value %> mb-3 ml-5" style="max-width: 18rem;">
+					  <div class="card-header"><i class="fa <%= category.icon_type %>"></i> <%= category.title %></div>
+					  <div class="card-body text-<%= selected_value %>">
+					    <!-- <h5 class="card-title"><%= category.title %></h5> -->
+					    <p class="card-text"><%= category.description %></p>
+					    <%= link_to contacts_path(category: category.id) do %>
+					    	<button type="button" class="btn btn-outline-<%= selected_value %>">Giňişleýin</button>
+					    <% end %>
+					  </div>
+					</div>
 
-			<% end %>
+				<% end %>
 
+			</div>
 		</div>
 
 	</div>

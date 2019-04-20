@@ -1,3 +1,24 @@
+    <script>
+        function showSearchContacts(str)
+        {
+            //if (str.length == 0) {
+                //document.getElementById("search_contacts").innerHTML = "Nichego Net";
+            //}
+            //else {
+                var xmlhttp = new XMLHttpRequest();
+
+                xmlhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        document.getElementById('search_contacts').innerHTML = this.responseText;
+                    }
+                };
+
+                xmlhttp.open("GET", "http://localhost:3000/contacts/search_contacts?hint="+str, true);
+                xmlhttp.send();
+            //}
+        }
+  </script>
+
 <div class="container">
 
 <nav class="navbar navbar-expand-lg navbar-expand-md navbar-expand-sm navbar-expand-xs navbar-light bg-light">
@@ -46,58 +67,62 @@
         <% end %>
       </li>
 
-
-
     </ul>
 
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-6" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
+    <input class="form-control col-md-5" type="search" placeholder="Ähli kontaktlardan gözle... (sözjügi ýazyp enter basyň)" aria-label="Gözleg" onsearch="showSearchContacts(this.value)">
 
   </div>
 </nav>
 
 <br/>
-<h1>Kontaktlar Sanawy </h1>
 
-<br/>
-<br/>
+<div id="search_contacts">
+    <h1>
+      <% if !@category.nil? %> 
+        <%= @category.title %>
+      <% else %>
+        Ähli Kontaktlar Sanawy
+      <% end %>
+    </h1>
 
-<table class="table table-hover">
+    <br/>
+    <br/>
 
-  <thead>
-    <tr>
-      <th>Kontakt</th>
-      <th>Salgysy</th>
-      <th>Kategoriýasy</th>
-      <th>Teswiri</th>
-      <th>Amallar</th>
-    </tr>
-  </thead>
+    <table class="table table-hover">
 
-  <tbody>
+      <thead>
+        <tr>
+          <th>Kontakt</th>
+          <th>Salgysy</th>
+          <th>Kategoriýasy</th>
+          <th>Teswiri</th>
+          <th>Amallar</th>
+        </tr>
+      </thead>
 
-    <% @contacts.each do |contact| %>
-      <tr>
-        <td> <%= link_to contact.title , contact %> </td>
-        <td> <%= contact.address %> </td>
-        <td> <%= contact.category.title %> </td>
-        <td> <%= contact.description %> </td>
-        <td> 
-          <%= link_to contact do %>
-            <i class="fa fa-info-circle"></i>
-          <% end %> 
-          &nbsp;
-          <%= link_to edit_contact_path(contact) do %>
-            <i class="fa fa-edit"></i>
-          <% end %> 
-        </td>
-      </tr>
-    <% end %>
+      <tbody>
 
-  </tbody>
+        <% @contacts.each do |contact| %>
+          <tr>
+            <td> <%= link_to contact.title , contact %> </td>
+            <td> <%= contact.address %> </td>
+            <td> <%= contact.category.title %> </td>
+            <td> <%= contact.description %> </td>
+            <td> 
+              <%= link_to contact do %>
+                <i class="fa fa-info-circle"></i>
+              <% end %> 
+              &nbsp;
+              <%= link_to edit_contact_path(contact) do %>
+                <i class="fa fa-edit"></i>
+              <% end %> 
+            </td>
+          </tr>
+        <% end %>
 
-</table>
+      </tbody>
+
+    </table>
+</div>
 
 </div>

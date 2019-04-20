@@ -6,6 +6,8 @@ Rails.application.routes.draw do
 #	get 'phones/destroy'
 #  end
 
+	get 'contacts/search_contacts'
+
 	resources :contacts
 
 	get 'categories/index'

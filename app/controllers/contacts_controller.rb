@@ -6,12 +6,21 @@ class ContactsController < ApplicationController
   def index
     @contacts = unless params[:category].blank?
       #Contact.where(category_id: params[:category]).order('title ASC')
-      Category.find(params[:category]).contacts.order('title ASC')
+      @category = Category.find(params[:category])
+      @category.contacts.order('title ASC')
     else
       Contact.all.order('title ASC')
     end
 
     @categories = Category.all.order('id ASC')
+  end
+
+  def search_contacts
+    @contacts = unless params[:hint].blank?
+      Contact.where("title LIKE ?", "%#{params[:hint]}%").order('title ASC')
+    else
+      Contact.all.order('title ASC')
+    end
   end
 
   # GET /contacts/1
