@@ -1,24 +1,14 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a public Contacts Web App to be used within a company...
 
-Things you may want to cover:
+No user registration, authorization.
+Anyone can add and edit contacts.
+Very good and suitable for public usage ...
 
-* Ruby version
+Good Luck !
 
-* System dependencies
+Tools :
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Framework : Ruby on Rails
+Database : SQLite
