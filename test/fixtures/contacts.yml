@@ -1,13 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 first_contact:
-  title: Kenek
+  title: Kenek Suyjilikler
   address: A. Novai kocesi, jay 34
   description: Suyjilikler, desertler, eltip berme hyzmaty
   category: first_cat
 
 second_contact:
-  title: Soltan
+  title: Soltan Restoran
   address: Parahat 4, jay 23 
   description: Restoran we eltip berme hyzmaty
   category: second_cat

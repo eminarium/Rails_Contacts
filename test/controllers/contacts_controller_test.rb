@@ -45,6 +45,7 @@ class ContactsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should destroy contact' do
+    #skip "contact deletion is temporarily skipped"
     assert_difference('Contact.count', -1) do
       delete contact_url(@contact)
     end

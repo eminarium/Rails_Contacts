@@ -10,12 +10,15 @@ gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.4'
 gem 'bootstrap', '~> 4.3', '>= 4.3.1'
 gem 'rails-controller-testing'
 
+# Gem for dynamically adding nested forms
 gem 'cocoon'
 
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-#gem 'rails', '~> 5.0.7', '>= 5.0.7.2'
-#gem 'rails'#, git: 'https://github.com/rails/rails.git'
-#gem 'rails', '~> 5.2', '>= 5.2.3'
+gem 'selenium-webdriver', '~>2.53.4'
+#gem 'geckodriver-helper'
+gem 'geckodriver-helper'
+#gem 'chromedriver-helper'
+#gem 'webdrivers'
+
 gem 'rails', '~> 5.2', '>= 5.2.2'
 #gem 'activesupport', '~> 5.2', '>= 5.2.3'
 #gem 'rails'
@@ -51,7 +54,10 @@ gem 'jbuilder', '~> 2.5'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   #gem 'byebug', platform: :mri
+  gem 'rspec-rails'
 end
+
+gem 'capybara'
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.

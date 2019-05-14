@@ -1,21 +1,16 @@
     <script>
         function showSearchContacts(str)
         {
-            //if (str.length == 0) {
-                //document.getElementById("search_contacts").innerHTML = "Nichego Net";
-            //}
-            //else {
-                var xmlhttp = new XMLHttpRequest();
+            var xmlhttp = new XMLHttpRequest();
 
-                xmlhttp.onreadystatechange = function() {
-                    if (this.readyState == 4 && this.status == 200) {
-                        document.getElementById('search_contacts').innerHTML = this.responseText;
-                    }
-                };
+            xmlhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById('search_contacts').innerHTML = this.responseText;
+                }
+            };
 
-                xmlhttp.open("GET", "http://localhost:3000/contacts/search_contacts?hint="+str, true);
-                xmlhttp.send();
-            //}
+            xmlhttp.open("GET", "http://localhost:3000/contacts/search_contacts?hint="+str, true);
+            xmlhttp.send();
         }
   </script>
 
@@ -24,7 +19,7 @@
 	card_types = %w(primary secondary success danger warning info dark)
 %>
 
-	<div class="jumbotron">
+	<div class="jumbotron" style="background-color: #FAF5EF">
 	  <div class="container">
 	    <h3 class="display-4">"GUJURLY NESIL" Okuw Merkezi</h3>
 	    <h3>IŞGÄRLER ÜÇIN ÝÖRITELEŞDIRILEN KONTAKTLAR BAZASY</h3>
@@ -48,15 +43,15 @@
 		    <span class="input-group-text" id="basic-addon1"><i class="fa fa-search"></i></span>
 		  </div>
 		  
-		  <input type="search" class="form-control" placeholder="Kategoriýa Saýlaň ýa-da gözläň ...  (sözjügi ýazyp enter basyň)" aria-label="Username" aria-describedby="basic-addon1" onsearch="showSearchContacts(this.value)">
+		  <input type="search" id="search_input" class="form-control" placeholder="Kategoriýa Saýlaň ýa-da gözläň ...  (sözjügi ýazyp enter basyň)" aria-label="Username" aria-describedby="basic-addon1" onsearch="showSearchContacts(this.value)">
 		  &nbsp;&nbsp;
 		  <div class="input-group-append">
 
-		  	<%= link_to contacts_path do %>
+		  	<%= link_to contacts_path, id: "all_contacts" do %>
     			<button class="btn btn-primary" type="button">Ähli Kontaktlar</button>
     		<% end %>
     		&nbsp;&nbsp;
-			<%= link_to new_contact_path do %>
+			<%= link_to new_contact_path, id: "new_contact" do %>
 				<button type="button" class="btn btn-primary">
 					<i class="fa fa-plus-circle" style="font-size:14pt"></i> &nbsp;
 					Täze Kontakt
